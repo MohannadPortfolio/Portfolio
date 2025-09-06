@@ -97,10 +97,15 @@ export default function Portfolio() {
                                 applications.
                             </p>
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                When I'm not coding, you'll find me contributing
-                                to open source projects, learning new
-                                technologies, or sharing knowledge with the
-                                developer community.
+                                I am entrepreneurially minded, and always
+                                looking for new opportunities to leverage and
+                                monetize technologies.
+                            </p>
+                            <p className="text-lg text-muted-foreground leading-relaxed">
+                                Though my strenght lie in web development in
+                                React JS and backend development in Node JS and
+                                Pthon, I dabble in other technologies to learn
+                                and expand my skillset and gain exposure.
                             </p>
                         </div>
                         <div className="flex justify-center">
