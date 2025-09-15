@@ -6,11 +6,7 @@ export const projects = [
         technologies: ["React JS", "Kadena", "Firestore", "Chakra UI"],
         github: "https://github.com/isokoxyz/isokoxyz",
         demo: "",
-        screenshots: [
-            "/ecommerce-homepage-product-grid.png",
-            "/ecommerce-product-detail.png",
-            "/ecommerce-checkout.png",
-        ],
+        screenshots: ["/isokohome.png", "/isokowallet.png"],
     },
     {
         title: "Kadcars GameFi",
@@ -19,24 +15,16 @@ export const projects = [
         technologies: ["React JS", "Kadena", "Chakra UI", "Pact"],
         github: "https://github.com/Kadcars-NFT/kadcars",
         demo: "",
-        screenshots: [
-            "/ecommerce-homepage-product-grid.png",
-            "/ecommerce-product-detail.png",
-            "/ecommerce-checkout.png",
-        ],
+        screenshots: ["/kc.png"],
     },
     {
         title: "Ready2Render",
         description:
-            "oracle application built for the purposes of demonstrating upgradable NFTs.",
+            "oracle application built for the purposes of demonstrating upgradable NFTs and rendering 3D NFT assets using blender.",
         technologies: ["Django", "Python", "Digital Ocean", "Blender"],
         github: "https://github.com/isokoxyz/R2R",
         demo: "",
-        screenshots: [
-            "/ecommerce-homepage-product-grid.png",
-            "/ecommerce-product-detail.png",
-            "/ecommerce-checkout.png",
-        ],
+        screenshots: ["/render.webp"],
     },
     {
         title: "kad_py_lib",
@@ -45,11 +33,7 @@ export const projects = [
         technologies: ["Python", "Kadena"],
         github: "https://github.com/isokoxyz/kad_py",
         demo: "",
-        screenshots: [
-            "/ecommerce-homepage-product-grid.png",
-            "/ecommerce-product-detail.png",
-            "/ecommerce-checkout.png",
-        ],
+        screenshots: ["/Pypi.png"],
     },
     {
         title: "kad_cs",
@@ -58,10 +42,6 @@ export const projects = [
         technologies: ["C#", "Kadena"],
         github: "https://github.com/isokoxyz/kad_cs",
         demo: "",
-        screenshots: [
-            "/ecommerce-homepage-product-grid.png",
-            "/ecommerce-product-detail.png",
-            "/ecommerce-checkout.png",
-        ],
+        screenshots: ["/csharp.png"],
     },
 ];
