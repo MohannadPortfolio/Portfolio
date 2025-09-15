@@ -15,13 +15,13 @@ export const achievements = [
         title: "$50,000 USD Blockchain Grant Recipient",
         description:
             "Awarded a $50,000 grant from Kadena to develop innovative blockchain and NFT applications.",
-        icon: "🎤",
+        icon: "⚡",
     },
     {
         title: "Speaker at Flux Cypherpunk Tech Conference",
         description:
             "Delivered a talk on the future of digital assets and blockchain technology.",
-        icon: "⚡",
+        icon: "🎤",
     },
     {
         title: "CompTIA Security+ Certification",
@@ -30,9 +30,9 @@ export const achievements = [
         icon: "🏆",
     },
     {
-        title: "Mentorship",
+        title: "Scholarship Recipient",
         description:
-            "Mentored 10+ junior developers through coding bootcamps and internship programs",
+            "Awarded full ride to earn my Master's degree in Computer Science while working full time at Tinker Air Force Base.",
         icon: "🎓",
     },
 ];

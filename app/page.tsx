@@ -61,7 +61,7 @@ export default function Portfolio() {
                             {/* View My Work Row */}
                             <div className="flex items-center gap-6">
                                 <h3 className="text-lg font-semibold text-foreground w-32 text-left">
-                                    View My Work
+                                    My Github Repositories
                                 </h3>
                                 <div className="flex gap-3">
                                     {githubAccounts.map((account, index) => {
@@ -89,23 +89,18 @@ export default function Portfolio() {
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div>
                             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                                I'm a passionate software engineer with
-                                expertise in full-stack development,
-                                specializing in modern web technologies and
-                                scalable system architecture. I love solving
-                                complex problems and building user-centric
-                                applications.
-                            </p>
-                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                I am entrepreneurially minded, and always
-                                looking for new opportunities to leverage and
-                                monetize technologies.
-                            </p>
-                            <p className="text-lg text-muted-foreground leading-relaxed">
-                                Though my strenght lie in web development in
-                                React JS and backend development in Node JS and
-                                Pthon, I dabble in other technologies to learn
-                                and expand my skillset and gain exposure.
+                                Passionate software engineer with expertise in
+                                full-stack development, specializing in modern
+                                web technologies and scalable system
+                                architecture. Skilled at solving complex
+                                problems and building user-centric applications.
+                                Entrepreneurially minded, always seeking
+                                opportunities to leverage and monetize
+                                technology. Strong background in web development
+                                with React.js and backend development in Node.js
+                                and Python, while continuously exploring new
+                                tools and frameworks to expand technical breadth
+                                and stay ahead of industry trends.
                             </p>
                         </div>
                         <div className="flex justify-center">
@@ -115,6 +110,62 @@ export default function Portfolio() {
                                 </span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Skills Section */}
+            <section className="py-16 px-4 bg-popover">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="text-3xl font-bold text-center mb-12 text-popover-foreground">
+                        Skills & Technologies
+                    </h2>
+                    <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+                        {skills.map((skill) => (
+                            <Badge
+                                key={skill}
+                                variant="secondary"
+                                className="p-3 text-center justify-center"
+                            >
+                                {skill}
+                            </Badge>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-16 px-4 bg-popover">
+                <div className="container mx-auto max-w-4xl">
+                    <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
+                        Education
+                    </h2>
+                    <div className="grid gap-8 md:grid-cols-2">
+                        <Card className="border-border/50">
+                            <CardContent>
+                                <h3 className="text-xl font-semibold text-foreground mb-2">
+                                    Master of Science in Computer Science
+                                </h3>
+                                <p className="text-muted-foreground mb-1">
+                                    University of Oklahoma
+                                </p>
+                                <p className="text-sm text-muted-foreground">
+                                    Graduated: December 2021 | GPA: 4.0
+                                </p>
+                            </CardContent>
+                        </Card>
+                        <Card className="border-border/50">
+                            <CardContent>
+                                <h3 className="text-xl font-semibold text-foreground mb-2">
+                                    Bachelor of Science in Computer Science
+                                </h3>
+                                <p className="text-muted-foreground mb-1">
+                                    University of Oklahoma
+                                </p>
+                                <p className="text-sm text-muted-foreground">
+                                    Graduated: May 2019 | GPA: 3.83
+                                </p>
+                            </CardContent>
+                        </Card>
                     </div>
                 </div>
             </section>
@@ -157,26 +208,6 @@ export default function Portfolio() {
                                     </div>
                                 </CardContent>
                             </Card>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Skills Section */}
-            <section className="py-16 px-4 bg-popover">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12 text-popover-foreground">
-                        Skills & Technologies
-                    </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {skills.map((skill) => (
-                            <Badge
-                                key={skill}
-                                variant="secondary"
-                                className="p-3 text-center justify-center"
-                            >
-                                {skill}
-                            </Badge>
                         ))}
                     </div>
                 </div>
