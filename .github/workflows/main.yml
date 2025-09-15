@@ -1,0 +1,94 @@
+name: Default Deployment Workflow
+
+on:
+    push:
+        branches: ['master']
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - uses: benjlevesque/short-sha@v2.2
+              id: short-sha
+              with:
+                  length: 10
+
+            - name: Build docker image
+              run: docker build . --file Dockerfile.prod --tag ghcr.io/mohannadwahmad17/MohannadPortfolio:$SHA
+              env:
+                  SHA: sha-${{ steps.short-sha.outputs.sha }}
+
+            - name: Login to GitHub Container Registry
+              uses: docker/login-action@v1
+              with:
+                  registry: ghcr.io
+                  username: ${{ github.actor }}
+                  password: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Push image
+              run: docker push ghcr.io/mohannadwahmad17/MohannadPortfolio:$SHA
+              env:
+                  SHA: sha-${{ steps.short-sha.outputs.sha }}
+
+    deployment:
+        needs: build
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - uses: benjlevesque/short-sha@v2.2
+              id: short-sha
+              with:
+                  length: 10
+
+            - name: Install kubectl
+              run: |
+                  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+                  chmod +x kubectl
+                  sudo mv kubectl /usr/local/bin/
+
+            - name: Setup kubeconfig
+              run: |
+                  mkdir -p ~/.kube
+                  echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
+                  chmod 600 ~/.kube/config
+
+            - name: Update regcred before deployment
+              run: |
+                  kubectl create namespace mohannadahmed --dry-run=client -o yaml | kubectl apply -f -
+                  kubectl delete secret regcred -n mohannadahmed --ignore-not-found=true
+                  kubectl create secret docker-registry regcred \
+                    --docker-server=ghcr.io \
+                    --docker-username=${{ github.actor }} \
+                    --docker-password=${{ secrets.GITHUB_TOKEN }} \
+                    --docker-email=${{ github.actor }}@users.noreply.github.com \
+                    --namespace=mohannadahmed
+
+            - name: Deploy to Kubernetes
+              uses: deler-aziz/helm-deploy-action@v1.0.0
+              with:
+                  helm: helm3
+                  release: 'mohannadahmed-portfolio'
+                  namespace: 'mohannadahmed'
+                  repo: https://lublabs.github.io/helmcharts
+                  repo-alias: lublabs-charts
+                  chart: 'lublabs-charts/lublabs-generic'
+                  chart-version: '3.11.0'
+                  token: '${{ github.token }}'
+                  timeout: 5m0s
+                  atomic: true
+                  value-files: >-
+                      [
+                          "values.yaml"
+                      ]
+                  values: |
+                      app:
+                          image:
+                              tag: sha-${{ steps.short-sha.outputs.sha }}
+              env:
+                  KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
