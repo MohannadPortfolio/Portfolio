@@ -105,9 +105,11 @@ export default function Portfolio() {
                         </div>
                         <div className="flex justify-center">
                             <div className="w-64 h-64 bg-muted rounded-lg flex items-center justify-center">
-                                <span className="text-muted-foreground">
-                                    Professional Photo
-                                </span>
+                                <img
+                                    src={"/portrait.jpg"}
+                                    className="w-full h-full object-cover select-none"
+                                    draggable={false}
+                                />
                             </div>
                         </div>
                     </div>
