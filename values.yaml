@@ -2,12 +2,12 @@ app:
     regcred: regcred
 
     image:
-        repository: ghcr.io/mohannadwahmad17/mohannadportfolio
+        repository: ghcr.io/mohannadportfolio/mohannadportfolio
 
     port: 3000
     health: /
 
     ingress:
         enabled: true
-        url: portfolio.mohannad.cloud.lublabs.com
+        url: mohannad-portfolio.cloud.lublabs.com
   
