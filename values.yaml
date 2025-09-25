@@ -9,6 +9,4 @@ app:
 
     ingress:
         enabled: true
-        # url: mohannad-portfolio.cloud.lublabs.com
-        url: test.lublabs.com
-          
+        url: mohannadahmad.com        
